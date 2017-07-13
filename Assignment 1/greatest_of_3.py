@@ -2,6 +2,7 @@
 program to find greater number between three number.
 '''
 
+
 #read three numbers from the user
 num1 = input("enter first number : ")
 num2 = input("enter second number : ")

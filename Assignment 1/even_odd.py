@@ -1,6 +1,8 @@
 '''
 program to check if a number is even or odd.
 '''
+
+
 #read value from the user
 number = input("enter a number to check : ")
 #checking if the number is odd or even
