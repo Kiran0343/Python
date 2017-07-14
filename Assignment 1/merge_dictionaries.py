@@ -1,13 +1,13 @@
-'''
+"""
 Python script to merge two Python dictionaries.
-'''
+"""
 
 
-#creating 2 sample dictionaries
+# creating 2 sample dictionaries
 dict1 = {'Name' : 'kiran','City' : 'Dallas'}
 dict2 = {'course':'Python','Assignment_no' : 1}
-#merging dict2 into dict1
+# merging dict2 into dict1
 for key,value in dict2.items():
     dict1[key] = value
-#printing the dict after merging
+# printing the dict after merging
 print dict1
