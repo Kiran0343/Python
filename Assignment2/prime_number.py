@@ -13,11 +13,9 @@ if number < 2 :
 if number == 2:
     print str(number) + " is a prime number"
 # else checking it by dividing the number from 2 to number-1
+for i in range(2,number):
+    if number % i == 0:
+        print str(number) + " is not a prime number"
+        break
 else:
-    for i in range(2,number):
-        if number % i == 0:
-            print str(number) + " is not a prime number"
-            break
-        else:
-            print str(number) + " is a prime number"
-            break
+     print str(number) + " is a prime number"
