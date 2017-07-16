@@ -11,4 +11,4 @@ kiran = ''
 for i in list:
     kiran = kiran + i
 # using count() method to calculate count of character in the string
-print(kiran.count('a'))
+print(kiran.count('an'))
