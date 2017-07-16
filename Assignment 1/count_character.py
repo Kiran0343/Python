@@ -2,7 +2,6 @@
 program to count the occurence of given character in list.
 """
 
-
 # creating a list to store elements
 list = ['kiran','reddy','kancharla']
 # creating empty string
@@ -11,4 +10,8 @@ kiran = ''
 for i in list:
     kiran = kiran + i
 # using count() method to calculate count of character in the string
-print(kiran.count('an'))
+print(kiran.count('a'))
+
+from sqlalchemy import create_engine
+
+
