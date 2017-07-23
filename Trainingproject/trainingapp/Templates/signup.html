@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>kiran reddy login</title>
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous">
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    </head>
+    <body>
+    <a href = "\home"><b>HOME</b></a>&nbsp;&nbsp;
+    <a href = " "><b>SIGN UP</b></a>&nbsp;&nbsp;
+    <a href = "\signin"><b>SIGN IN</b></a>
+    <br><br><br><h1 align="center">USER REGISTRATION PAGE</h1><br><br><br>
+    <form action = "signup" method = "POST" accept-charset="utf-8">
+        {% csrf_token %}
+        <div class="form-group" align="center">
+            <label>First Name : </label>
+            <input type="text" name = "first_name" id="first_name" placeholder="first_name" required>
+        </div>
+        <div class="form-group" align="center">
+            <label>Last Name : </label>
+            <input type="text"  name = "last_name" id="last_name" placeholder="last_name" required>
+        </div>
+        <div class="form-group" align="center">
+            <label>Username : </label>
+            <input type="text" name = "user_name"  id="user_name" placeholder="user_name" required>
+        </div>
+        <div class="form-group" align="center">
+            <label for="exampleInputEmail1">Email_id : </label>
+            <input type="email" name = "Email" id="Email" placeholder="Email" required>
+        </div>
+        <div class="form-group" align="center">
+            <label for="exampleInputPassword1">Password : </label>
+            <input type="password" name = "password" id="password" placeholder="Password" required>
+        </div>
+        <div class="form-group" align="center">
+        <button type="submit" class="btn btn-default">Register</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+        </div>
+    </form>
+    </body>
+</html>

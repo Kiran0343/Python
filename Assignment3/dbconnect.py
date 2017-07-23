@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 import pandas as pd
 
 # connecting to MYSQl database
-engine = create_engine('mysql://root:Msatyam13$@localhost/python')
+engine = create_engine('mysql+pymysql://root:Msatyam13$@localhost/python')
 con = engine.connect()
 #dropping table before creation if exists
 con.execute("DROP TABLE IF EXISTS kiran")
@@ -30,3 +30,4 @@ con.execute("UPDATE kiran set name = 'aditya reddy' WHERE id = 2")
 data = con.execute("SELECT * FROM kiran")
 data2 = pd.DataFrame(data.fetchall(),columns = data.keys())
 print data2
+

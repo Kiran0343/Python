@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>kiran reddy</title>
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous">
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    </head>
+    <body>
+    <p align="right"><a href = "\home">LOG OUT</a></p>
+    <a href = "\home"><b>HOME</b></a>&nbsp;&nbsp;
+    <a href = " "><b>SIGN UP</b></a>&nbsp;&nbsp;
+    <a href = "\signin"><b>SIGN IN</b></a>
+    <br><br><br><h1 align="center"> Welcome Page</h1><br><br><br>
+    <ul>
+    <li>
+    {% if user.is_authenticated %}
+        <p><b>Welcome user, </b>{{ user.get_username }}</p>
+        USERNAME : {{ user.get_username }}
+    {% else %}
+        <p><b>Welcome user, you are logged in</p>
+    {% endif %}
+    </li>
+    </ul>
+    </body>
+
+</html>
