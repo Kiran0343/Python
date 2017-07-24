@@ -2,15 +2,13 @@
 from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
-from trainingapp.models import users
 from django.template import loader,RequestContext
 from trainingapp.forms import userform
-from django.contrib.auth import authenticate,login
 from django.shortcuts import render,render_to_response
 from trainingapp.models import users
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import authenticate, login
 from trainingapp.forms import loginform
 
 
@@ -40,11 +38,11 @@ def index1(request):
         all_users = users.objects.all()
         for user in all_users:
             if (username == user.user_name and password == user.password):
-                return render(request,'welcome.html',{'name':username})
+                return render(request, 'welcome.html', {'name': username})
         else:
-            return  render(request,'signin.html')
+            return render(request, 'signin.html')
 
-    return render(request,'signin.html')
+    return render(request, 'signin.html')
 
 
 def home(request):
@@ -56,8 +54,9 @@ def home(request):
 
 @login_required
 def welcome(request):
-    all_users = users.objects.all()
-    context = {
-        'all_users' : all_users,
-    }
-    return render('welcome.html',{'all_users':context})
+    if request.method == 'POST':
+        all_users = users.objects.all()
+        cards = {
+            'all_users': all_users,
+        }
+        return render(request, "welcome.html", cards)
