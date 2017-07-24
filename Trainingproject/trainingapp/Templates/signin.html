@@ -1,3 +1,5 @@
+{% load bootstrap3 %}
+
 <html>
     <head>
         <title>kiran reddy login</title>
@@ -14,8 +16,14 @@
     <a href = ""><b>SIGN IN</b></a>&nbsp;&nbsp;
     <a href = "\signup"><b>SIGN UP</b></a>
     <br><br><br><h1 align="center">USER LOGIN PAGE</h1><br><br><br>
-    <form action = "signin" method = "POST" accept-charset="utf-8">
+    <form class="form-horizantal" action = "signin" method = "POST" accept-charset="utf-8">
         {% csrf_token %}
+        <div class="center">
+        {% csrf_token %}
+        {% for field in loginform %}
+            {% bootstrap_field field %}
+        {% endfor %}
+        </div>
         <div class="form-group" align="center">
             <label>Username : </label>
             <input type="text" name ="user_name" id="user_name" placeholder="user_name" required>

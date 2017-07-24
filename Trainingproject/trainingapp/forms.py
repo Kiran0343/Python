@@ -16,8 +16,8 @@ class userform(forms.ModelForm):
 
 
 class loginform(forms.Form):
-    user_name = forms.CharField(max_length=100)
-    password = forms.CharField(max_length=100)
+    user_name = forms.CharField(widget=forms.TextInput)
+    password = forms.CharField(widget=forms.TextInput)
 
     def __unicode__(self):
         return self.email
