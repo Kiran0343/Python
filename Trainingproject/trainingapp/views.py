@@ -17,6 +17,7 @@ from trainingapp.forms import loginform
 
 
 def index(request):
+    context = RequestContext(request)
     if request.method == 'POST':
         first_name = request.POST.get("first_name",'')
         last_name = request.POST.get("last_name",'')
@@ -38,12 +39,11 @@ def index1(request):
         all_users = users.objects.all()
         for user in all_users:
             if (username == user.user_name and password == user.password):
-                return render(request, 'welcome.html', {'name': username})
+                return render(request,'welcome.html',{'name':username})
         else:
-            return render(request, 'signin.html')
-        form = loginform()
+            return  render(request,'signin.html')
 
-    return render(request, 'signin.html')
+    return render(request,'signin.html')
 
 
 def home(request):
@@ -56,10 +56,8 @@ def home(request):
 
 @login_required
 def welcome(request):
-    if request.method == 'POST':
-        request.user.get_username()
-        all_users = users.objects.all()
-        cards = {
-            'all_users': all_users,
-        }
-        return render_to_response('welcome.html',cards,context_instance=RequestContext(request,cards))
+    all_users = users.objects.all()
+    context = {
+        'all_users' : all_users,
+    }
+    return render('welcome.html',{'all_users':context})
