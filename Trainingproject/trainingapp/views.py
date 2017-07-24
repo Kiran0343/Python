@@ -41,6 +41,7 @@ def index1(request):
                 return render(request, 'welcome.html', {'name': username})
         else:
             return render(request, 'signin.html')
+        form = loginform()
 
     return render(request, 'signin.html')
 
@@ -52,11 +53,13 @@ def home(request):
     }
     return render(request,"home.html",cards)
 
+
 @login_required
 def welcome(request):
     if request.method == 'POST':
+        request.user.get_username()
         all_users = users.objects.all()
         cards = {
             'all_users': all_users,
         }
-        return render(request, "welcome.html", cards)
+        return render_to_response('welcome.html',cards,context_instance=RequestContext(request,cards))

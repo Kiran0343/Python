@@ -78,6 +78,8 @@ TEMPLATES = [
     },
 ]
 
+
+
 WSGI_APPLICATION = 'Trainingproject.wsgi.application'
 
 
